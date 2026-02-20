@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* TEMA DEĞİŞKENLERİ */
         :root {
             --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             --card-bg: rgba(255, 255, 255, 0.08);
@@ -18,24 +17,22 @@
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* BEYAZ TEMA */
         [data-theme="light"] {
             --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.85);
             --text-color: #2d3436;
             --accent-color: #0984e3;
-            --secondary-color: #74b9ff;
+            --secondary-color: #00cec9;
             --border-color: rgba(0, 0, 0, 0.1);
         }
 
-        /* HACKER TEMA */
         [data-theme="hacker"] {
-            --bg-gradient: #000000;
-            --card-bg: rgba(0, 50, 0, 0.2);
-            --text-color: #00ff00;
-            --accent-color: #008000;
-            --secondary-color: #00ff00;
-            --border-color: #00ff00;
+            --bg-gradient: #050505;
+            --card-bg: rgba(0, 20, 0, 0.9);
+            --text-color: #00ff41;
+            --accent-color: #008f11;
+            --secondary-color: #00ff41;
+            --border-color: #00ff41;
         }
 
         * {
@@ -43,7 +40,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease; /* Renk geçişlerini yumuşatır */
+            transition: background 0.3s, color 0.3s, border 0.3s;
         }
 
         body {
@@ -54,44 +51,42 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px; /* Mobilde kenar boşluğu */
         }
 
-        /* Tema Değiştirme Butonu */
         .theme-switcher {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 1000;
             background: var(--accent-color);
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 0.8rem;
             font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .glass-card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 2px solid var(--border-color);
-            border-radius: 40px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
             width: 100%;
-            max-width: 950px;
-            padding: 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 40px;
+            max-width: 900px;
+            padding: 30px;
+            display: flex;
+            flex-direction: row; /* Masaüstü varsayılan */
+            gap: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .profile-side {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -101,74 +96,66 @@
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 30px;
+            width: 160px;
+            height: 160px;
+            border-radius: 25px;
             border: 3px solid var(--accent-color);
             object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .badge {
-            background: var(--accent-color);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
             margin-bottom: 15px;
         }
 
-        .content-side h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; }
-        .subtitle { font-size: 1.1rem; color: var(--secondary-color); margin-bottom: 30px; }
-        
+        .content-side {
+            flex: 2;
+        }
+
+        .content-side h1 { font-size: 2.2rem; margin-bottom: 5px; }
+        .subtitle { color: var(--secondary-color); margin-bottom: 20px; font-size: 0.9rem; }
+
         .section-title {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--secondary-color);
-            margin: 20px 0 15px;
-            display: flex;
-            align-items: center; gap: 10px;
+            margin: 15px 0 10px;
+            letter-spacing: 1px;
         }
 
         .grid-list {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr); /* Masaüstü 2 sütun */
+            gap: 10px;
         }
 
         .item {
             background: rgba(128, 128, 128, 0.05);
-            padding: 12px 18px;
-            border-radius: 15px;
-            font-size: 0.9rem;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: 1px solid var(--border-color);
         }
-
-        .item i { color: var(--accent-color); }
 
         .btn-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 30px;
+            gap: 10px;
+            margin-top: 25px;
         }
 
         .btn {
             text-decoration: none;
             color: var(--text-color);
-            padding: 12px 20px;
-            border-radius: 15px;
-            font-size: 0.85rem;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.8rem;
             font-weight: 600;
-            background: var(--card-bg);
+            background: rgba(255,255,255,0.05);
             border: 1px solid var(--border-color);
             display: flex;
-            align-items: center; gap: 8px;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-special {
@@ -177,51 +164,89 @@
             border: none;
         }
 
-        @media (max-width: 850px) {
-            .glass-card { grid-template-columns: 1fr; padding: 30px; }
-            .profile-side { border-right: none; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; }
+        /* --- MOBİL AYARLAR (İşte Burası Önemli) --- */
+        @media (max-width: 768px) {
+            .glass-card {
+                flex-direction: column; /* Mobilde alt alta */
+                padding: 20px;
+            }
+
+            .profile-side {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .content-side h1 {
+                font-size: 1.8rem;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .subtitle {
+                text-align: center;
+            }
+
+            .grid-list {
+                grid-template-columns: 1fr; /* Mobilde tek sütun */
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .btn {
+                width: 100%; /* Mobilde butonlar tam genişlik */
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
     <button class="theme-switcher" onclick="toggleTheme()">
-        <i class="fas fa-palette"></i> Temayı Değiştir
+        <i class="fas fa-palette"></i> Tema
     </button>
 
     <div class="glass-card">
         <div class="profile-side">
             <img src="profil.png" alt="Afra Yakalı" class="profile-img">
-            <span class="badge">BİLİŞİM TEKNOLOJİLERİ</span>
-            <p><strong>Afra YAKALI</strong><br>12. Sınıf Öğrencisi</p>
+            <p><strong>Afra YAKALI</strong></p>
+            <p style="font-size: 0.8rem; opacity: 0.8;">Nene Hatun MTAL 12-B</p>
         </div>
 
         <div class="content-side">
-            <h1>Hoş Geldiniz.</h1>
-            <p class="subtitle">Korkuteli Nene Hatun MTAL Bilişim Alanı</p>
+            <h1>Merhaba!</h1>
+            <p class="subtitle">Bilişim Teknolojileri & Dijital Tasarım</p>
 
-            <div class="section-title">Staj: Foto İrem Deneyimleri</div>
+            <p class="section-title">Staj: Foto İrem</p>
             <div class="grid-list">
-                <div class="item"><i class="fas fa-magic"></i> After Effects & Photoshop</div>
-                <div class="item"><i class="fas fa-print"></i> Dijital Baskı Teknikleri</div>
-                <div class="item"><i class="fas fa-images"></i> Fotoğraf Restorasyonu</div>
-                <div class="item"><i class="fas fa-scanner"></i> Profesyonel Tarama</div>
+                <div class="item"><i class="fas fa-star"></i> After Effects</div>
+                <div class="item"><i class="fas fa-star"></i> Photoshop</div>
+                <div class="item"><i class="fas fa-star"></i> Baskı & Tarama</div>
+                <div class="item"><i class="fas fa-star"></i> Düzenleme</div>
             </div>
 
-            <div class="section-title">Teknik Uzmanlıklar</div>
+            <p class="section-title">Uzmanlık Alanlarım</p>
             <div class="grid-list">
-                <div class="item"><i class="fas fa-globe"></i> Web Programcılığı</div>
-                <div class="item"><i class="fas fa-mobile"></i> Mobil Uygulamalar</div>
-                <div class="item"><i class="fas fa-gamepad"></i> Oyun Geliştirme</div>
-                <div class="item"><i class="fas fa-code"></i> Yazılım Mimarisi</div>
+                <div class="item"><i class="fas fa-code"></i> Web Pro.</div>
+                <div class="item"><i class="fas fa-mobile-alt"></i> Mobil Uyg.</div>
+                <div class="item"><i class="fas fa-gamepad"></i> Oyun Gel.</div>
+                <div class="item"><i class="fas fa-layer-group"></i> Yazılım</div>
             </div>
 
             <div class="btn-group">
                 <a href="https://fatihpatir.github.io/web/" target="_blank" class="btn btn-special">
-                    <i class="fas fa-rocket"></i> Mentor: Fatih PATIR
+                    <i class="fas fa-rocket"></i> Fatih PATIR
                 </a>
                 <a href="https://instagram.com/afraowc" target="_blank" class="btn">
-                    <i class="fab fa-instagram"></i> @afraowc
+                    <i class="fab fa-instagram"></i> Instagram
                 </a>
                 <a href="https://korkutelinenehatun.meb.k12.tr/" target="_blank" class="btn">
                     <i class="fas fa-school"></i> Okulumuz
@@ -237,14 +262,11 @@
         function toggleTheme() {
             currentThemeIndex = (currentThemeIndex + 1) % themes.length;
             const newTheme = themes[currentThemeIndex];
-            
             if (newTheme === 'default') {
                 document.documentElement.removeAttribute('data-theme');
             } else {
                 document.documentElement.setAttribute('data-theme', newTheme);
             }
-            
-            console.log("Tema değiştirildi: " + newTheme);
         }
     </script>
 </body>
