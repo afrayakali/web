@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afra Yakalı | Portfolyo</title>
+    <title>Afra Yakalı | Portfolyo & Oyun</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -15,6 +15,7 @@
             --accent-color: #6c5ce7;
             --secondary-color: #a29bfe;
             --border-color: rgba(255, 255, 255, 0.1);
+            --neon-pink: #ff00ff;
         }
 
         [data-theme="light"] {
@@ -24,6 +25,7 @@
             --accent-color: #0984e3;
             --secondary-color: #00cec9;
             --border-color: rgba(0, 0, 0, 0.1);
+            --neon-pink: #d63031;
         }
 
         [data-theme="hacker"] {
@@ -33,15 +35,10 @@
             --accent-color: #008f11;
             --secondary-color: #00ff41;
             --border-color: #00ff41;
+            --neon-pink: #00ff41;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            transition: 0.3s ease;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: 0.3s ease; }
 
         body {
             background: var(--bg-gradient);
@@ -56,16 +53,10 @@
 
         .theme-switcher {
             position: fixed;
-            top: 15px;
-            right: 15px;
-            z-index: 1000;
+            top: 15px; right: 15px; z-index: 1000;
             background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.75rem;
+            color: white; border: none; padding: 8px 15px;
+            border-radius: 50px; cursor: pointer; font-size: 0.75rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
@@ -75,115 +66,75 @@
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--border-color);
             border-radius: 30px;
-            width: 100%;
-            max-width: 900px;
-            padding: 40px;
-            display: flex;
-            gap: 30px;
+            width: 100%; max-width: 900px; padding: 40px;
+            display: flex; gap: 30px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            position: relative;
         }
 
         .profile-side {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border-right: 1px solid var(--border-color);
-            padding-right: 25px;
+            flex: 1; display: flex; flex-direction: column; align-items: center;
+            text-align: center; border-right: 1px solid var(--border-color); padding-right: 25px;
         }
 
         .profile-img {
-            width: 170px;
-            height: 170px;
-            border-radius: 30px;
-            border: 3px solid var(--accent-color);
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .mentor-mini {
-            margin-top: auto;
-            padding-top: 20px;
-            width: 100%;
+            width: 160px; height: 160px; border-radius: 30px;
+            border: 3px solid var(--accent-color); object-fit: cover; margin-bottom: 20px;
         }
 
         .mentor-link {
-            text-decoration: none;
-            color: var(--secondary-color);
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            padding: 8px;
-            border: 1px dashed var(--border-color);
-            border-radius: 10px;
+            text-decoration: none; color: var(--secondary-color); font-size: 0.7rem;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+            padding: 8px; border: 1px dashed var(--border-color); border-radius: 10px; margin-top: auto;
         }
-
-        .mentor-link:hover { color: var(--accent-color); border-color: var(--accent-color); }
 
         .content-side { flex: 2; }
-        .content-side h1 { font-size: 2.3rem; margin-bottom: 5px; font-weight: 800; }
-        .subtitle { color: var(--secondary-color); margin-bottom: 25px; font-size: 0.95rem; }
+        .content-side h1 { font-size: 2.2rem; margin-bottom: 5px; font-weight: 800; }
+        .subtitle { color: var(--secondary-color); margin-bottom: 20px; font-size: 0.9rem; }
 
         .section-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--secondary-color);
-            margin: 15px 0 10px;
-            letter-spacing: 1px;
-            opacity: 0.8;
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            color: var(--secondary-color); margin: 15px 0 10px; letter-spacing: 1px;
         }
 
-        .grid-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
+        .grid-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .item {
-            background: rgba(128, 128, 128, 0.05);
-            padding: 10px 15px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            background: rgba(128, 128, 128, 0.05); padding: 10px 15px;
+            border-radius: 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;
             border: 1px solid var(--border-color);
         }
 
-        .btn-group {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 25px;
+        /* OYUN KUTUSU */
+        .game-showcase {
+            background: linear-gradient(45deg, rgba(0,0,0,0.4), rgba(108, 92, 231, 0.2));
+            border: 1px solid var(--neon-pink);
+            border-radius: 20px; padding: 20px; margin-top: 20px;
+            display: flex; align-items: center; justify-content: space-between;
         }
 
+        .game-info h4 { color: var(--neon-pink); font-size: 1rem; margin-bottom: 5px; }
+        .game-info p { font-size: 0.75rem; opacity: 0.8; }
+
+        .play-btn {
+            background: var(--neon-pink); color: white; text-decoration: none;
+            padding: 8px 20px; border-radius: 10px; font-weight: bold; font-size: 0.85rem;
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .btn-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 25px; }
         .btn {
-            text-decoration: none;
-            color: var(--text-color);
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            text-decoration: none; color: var(--text-color); padding: 10px;
+            border-radius: 12px; font-size: 0.8rem; font-weight: 600;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
 
-        .btn:hover { background: var(--accent-color); color: white; border: none; transform: translateY(-2px); }
+        .btn:hover { background: var(--accent-color); color: white; transform: translateY(-2px); }
 
         @media (max-width: 800px) {
             .glass-card { flex-direction: column; padding: 25px; }
-            .profile-side { border-right: none; border-bottom: 1px solid var(--border-color); padding-right: 0; padding-bottom: 25px; }
-            .grid-list { grid-template-columns: 1fr; }
-            .btn-group { grid-template-columns: 1fr; }
+            .profile-side { border-right: none; border-bottom: 1px solid var(--border-color); padding-bottom: 25px; }
+            .grid-list, .btn-group { grid-template-columns: 1fr; }
+            .game-showcase { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
 </head>
@@ -199,31 +150,29 @@
             <p style="font-weight: 700;">Afra YAKALI</p>
             <p style="font-size: 0.8rem; opacity: 0.7;">Bilişim Teknolojileri</p>
             
-            <div class="mentor-mini">
-                <a href="https://fatihpatir.github.io/web/" target="_blank" class="mentor-link">
-                    <i class="fas fa-user-shield"></i> Danışman: Fatih PATIR
-                </a>
-            </div>
+            <a href="https://fatihpatir.github.io/web/" target="_blank" class="mentor-link">
+                <i class="fas fa-user-shield"></i> Danışman: Fatih PATIR
+            </a>
         </div>
 
         <div class="content-side">
             <h1>Hoş Geldiniz</h1>
-            <p class="subtitle">Nene Hatun MTAL | Foto İrem Stajyeri</p>
+            <p class="subtitle">Nene Hatun MTAL | Bilişim ve Tasarım Dünyası</p>
 
-            <div class="section-title">Staj Deneyimi</div>
-            <div class="grid-list">
-                <div class="item"><i class="fas fa-film"></i> After Effects</div>
-                <div class="item"><i class="fas fa-paint-brush"></i> Photoshop</div>
-                <div class="item"><i class="fas fa-print"></i> Dijital Baskı</div>
-                <div class="item"><i class="fas fa-camera"></i> Foto Düzenleme</div>
+            <div class="game-showcase">
+                <div class="game-info">
+                    <h4><i class="fas fa-gamepad"></i> AFRA: NEON DYNAMICS</h4>
+                    <p>Kendi geliştirdiğim Neon City temalı aksiyon oyunu!</p>
+                </div>
+                <a href="https://afrayakali.github.io/ring" target="_blank" class="play-btn">HEMEN OYNA</a>
             </div>
 
-            <div class="section-title">Yazılım & Beceriler</div>
+            <div class="section-title">Uzmanlık & Deneyim</div>
             <div class="grid-list">
+                <div class="item"><i class="fas fa-magic"></i> After Effects & PS</div>
+                <div class="item"><i class="fas fa-print"></i> Foto İrem Baskı</div>
                 <div class="item"><i class="fas fa-code"></i> Web Programlama</div>
-                <div class="item"><i class="fas fa-mobile-alt"></i> Mobil Uygulama</div>
-                <div class="item"><i class="fas fa-gamepad"></i> Oyun Geliştirme</div>
-                <div class="item"><i class="fas fa-laptop-code"></i> Yazılım</div>
+                <div class="item"><i class="fas fa-mobile-alt"></i> Mobil & Oyun Gel.</div>
             </div>
 
             <div class="btn-group">
@@ -234,7 +183,7 @@
                     <i class="fas fa-camera-retro"></i> @iremfotografcilik
                 </a>
                 <a href="https://korkutelinenehatun.meb.k12.tr/" target="_blank" class="btn" style="grid-column: span 2;">
-                    <i class="fas fa-school"></i> Nene Hatun MTAL Web Sayfası
+                    <i class="fas fa-school"></i> Okulumuzun Sayfası
                 </a>
             </div>
         </div>
